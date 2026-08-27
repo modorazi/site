@@ -46,8 +46,8 @@
 				const portrait = window.matchMedia('(orientation: portrait)');
 
 				function setSource(e) {
-					// const base = e.matches ? 'video/modOrazi-mobile-9x16-20s' : 'video/modOrazi-wide-16x9-20s';
-					const base = e.matches ? 'video/modOrazi-wide-16x9-20s' : 'video/modOrazi-mobile-9x16-20s';
+					const base = e.matches ? 'video/modOrazi-mobile-9x16-20s' : 'video/modOrazi-wide-16x9-20s';
+					// const base = e.matches ? 'video/modOrazi-wide-16x9-20s' : 'video/modOrazi-mobile-9x16-20s';
 					// swap the container's aspect ratio to match the video orientation
 					wrap.classList.toggle('aspect-video', !e.matches);
 					wrap.classList.toggle('aspect-[9/16]', e.matches);
