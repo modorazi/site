@@ -38,16 +38,37 @@
 				poster="images/modorazi-logo-251col-web.png"
 				style="background-position: center;"
 			>
-				<!-- Mobile phone first. Portrait screens (phones held upright) -->
-				<source src="video/modOrazi-mobile-9x16-20s.webm" type="video/webm" />
-				<source src="video/modOrazi-mobile-9x16-20s.mp4"  type="video/mp4"  />
-
-				<!-- Fallback: landscape / desktop -->
-				<source src="video/modOrazi-wide-16x9-20s.webm" type="video/webm" />
-				<source src="video/modOrazi-wide-16x9-20s.mp4"  type="video/mp4" />					
+				<!-- IDs added to sources for JS control -->
+				<source id="video-webm" type="video/webm" />
+				<source id="video-mp4" type="video/mp4" />					
 			</video>
 		</div>
 	</section>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const video = document.getElementById("hero");
+			const webmSource = document.getElementById("video-webm");
+			const mp4Source = document.getElementById("video-mp4");
+
+			// Check if the screen is portrait (mobile)
+			const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+			if (isPortrait) {
+				// Set mobile files
+				webmSource.src = "video/modOrazi-mobile-9x16-20s.webm";
+				mp4Source.src = "video/modOrazi-mobile-9x16-20s.mp4";
+			} else {
+				// Set desktop/wide files
+				webmSource.src = "video/modOrazi-wide-16x9-20s.webm";
+				mp4Source.src = "video/modOrazi-wide-16x9-20s.mp4";
+			}
+
+			// Force the video element to scan the newly injected sources
+			video.load();
+		});
+	</script>
+
 	
     <section class="services">
         <h2>Notre expertise clé</h2>
