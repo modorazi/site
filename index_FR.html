@@ -37,32 +37,15 @@
 				class="w-full h-full object-cover"
 				poster="images/modorazi-logo-251col-web.png"
 				style="background-position: center;"
-			></video>
+					 <!-- Mobile phone first. Portrait screens (phones held upright) -->
+					<source src="video/modOrazi-mobile-9x16-20s.webm" type="video/webm" media="(orientation: portrait)" />
+					<source src="video/modOrazi-mobile-9x16-20s.mp4"  type="video/mp4"  media="(orientation: portrait)" />
+
+					<!-- Fallback: landscape / desktop -->
+					<source src="video/modOrazi-wide-16x9-20s.webm" type="video/webm" />
+					<source src="video/modOrazi-wide-16x9-20s.mp4"  type="video/mp4" />					
+			</video>
 		</div>
-
-			<script>
-				const video = document.getElementById('hero');
-				const wrap = document.getElementById('hero-wrap');
-				const portrait = window.matchMedia('(orientation: portrait)');
-
-				function setSource(e) {
-					const base = e.matches ? 'video/modOrazi-mobile-9x16-20s' : 'video/modOrazi-wide-16x9-20s';
-					// const base = e.matches ? 'video/modOrazi-wide-16x9-20s' : 'video/modOrazi-mobile-9x16-20s';
-					// swap the container's aspect ratio to match the video orientation
-					wrap.classList.toggle('aspect-video', !e.matches);
-					wrap.classList.toggle('aspect-[9/16]', e.matches);
-
-					video.innerHTML = `
-						<source src="${base}.webm" type="video/webm" />
-						<source src="${base}.mp4" type="video/mp4" />`;
-					video.load();
-					video.play();
-				}
-
-				setSource(portrait);
-				portrait.addEventListener('change', setSource);
-			</script>
-	</section>
 	
     <section class="services">
         <h2>Notre expertise clé</h2>
