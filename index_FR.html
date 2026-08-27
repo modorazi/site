@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Release2 v2 --> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,15 +20,15 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Concevoir l'avenir de l'IA et de la donnée en entreprise</h1>
-            <p>Nous concevons des pipelines de données critiques et des solutions d'intelligence artificielle répondant aux exigences strictes de la banque, de l'administration publique et des grandes entreprises.</p>
+            <h1>Concevoir l'avenir de l'IA et des données</h1>
+            <p>Nous concevons des pipelines de données critiques et des solutions d'intelligence artificielle répondant aux exigences strictes des banques, de l'administration publique et des grandes entreprises.</p>
             <h2>Sans les DONNÉES, il n'y a pas d'IA.</h2>
         </div>
 	</header>
 	<section class="centrato">
         <!-- modOrazi 16:9 Hero Video Embed. All rights reserved. Hero Video inline CSS applied beyond header.-->
-		<div class="relative w-full aspect-video overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
-		<video
+		<div class="relative w-full aspect-video overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">	
+			<video id="hero"
 				autoplay
 				loop
 				muted
@@ -37,10 +38,24 @@
 				width=1200
 				height=auto
 				style="background-position: center;"
-			  >
-					<source src="video/modOrazi-hero-16x9-20s.webm" type="video/webm" />
-					<source src="video/modOrazi-hero-16x9-20s.mp4" type="video/mp4" /> 
-			  </video>			  
+			>
+				<script>
+					const video = document.getElementById('hero');
+					const portrait = window.matchMedia('(orientation: portrait)');
+
+					function setSource(e) {
+						const base = e.matches ? 'video/modOrazi-mobile-9x16-20s' : 'video/modOrazi-wide-16x9-20s';
+						video.innerHTML = `
+						<source src="${base}.webm" type="video/webm" />
+						<source src="${base}.mp4"  type="video/mp4" />`;
+						video.load();   // forces the browser to re-read the sources
+						video.play();
+						}
+
+					setSource(portrait);                       		// initial choice, 16:9 or 9:16
+					portrait.addEventListener('change', setSource); // on rotation/resize
+				</script>
+			</video>			  
         </div>
 	</section>
 	
@@ -53,17 +68,17 @@
             </div>
             <div class="card">
                 <h3>Ingénierie des données</h3>
-                <p><font size="4">Des pipelines de données de bout en bout garantissant une haute disponibilité, une conformité stricte et une gouvernance absolue des données sensibles, même si reservées ou financières.</font></p>
+                <p><font size="4">Nos pipelines des données garantissent une haute disponibilité, une conformité stricte et une gouvernance absolue des données sensibles, même si financières.</font></p>
             </div>
             <div class="card">
                 <h3>IA appliquée</h3>
-                <p><font size="4">Déploiement de modèles prédictifs, de LLM et d'automatisation intelligente en toute sécurité au sein d'environnements hautement réglementés. <br>Nous faisons fonctionner de véritables agents.</font></p>
+                <p><font size="4">Déploiement de modèles prédictifs, de LLM et d'automatisation intelligente en toute sécurité au sein d'environnements hautement réglementés. <br>Nous faisons fonctionner les véritables agents.</font></p>
             </div>
         </div>
     </section>
 
     <footer>
-        <h2>Prêt à transformer votre stratégie IA & données au JUSTE coût ?</h2>
+        <h2>Prêts à transformer votre stratégie DATA&amp;IA au JUSTE coût ?</h2>
         <p><font size="4">Contactez dès à présent notre équipe d'architecture pour discuter de vos besoins d'entreprise.<font></p>
 
         <a href="mailto:modorazi@outlook.com" class="email-link">modorazi@outlook.com</a>
