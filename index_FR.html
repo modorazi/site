@@ -28,7 +28,7 @@
 	
 	<section class="centrato">
         <!-- modOrazi 16:9 Hero Video Embed. All rights reserved. Hero Video inline CSS applied beyond header.-->
-		<div id="hero-wrap" class="relative w-full aspect-video overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
+		<div id="hero-wrap" class="relative w-full aspect-video max-md:aspect-[9/16] overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
 			<video id="hero"
 				autoplay
 				loop
@@ -46,8 +46,7 @@
 				const portrait = window.matchMedia('(orientation: portrait)');
 
 				function setSource(e) {
-					// const base = e.matches ? 'video/modOrazi-mobile-9x16-20s' : 'video/modOrazi-wide-16x9-20s';
-					const base = 'video/modOrazi-mobile-9x16-20s'
+					const base = e.matches ? 'video/modOrazi-mobile-9x16-20s' : 'video/modOrazi-wide-16x9-20s';
 					// swap the container's aspect ratio to match the video orientation
 					wrap.classList.toggle('aspect-video', !e.matches);
 					wrap.classList.toggle('aspect-[9/16]', e.matches);
@@ -60,7 +59,7 @@
 				}
 
 				setSource(portrait);
-				// portrait.addEventListener('change', setSource);
+				portrait.addEventListener('change', setSource);
 			</script>
 	</section>
 	
