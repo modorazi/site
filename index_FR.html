@@ -55,7 +55,8 @@
 			const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
 			if (isPortrait) {
-				// Set mobile files
+				// Set mobile files, mp4 first for mobile
+				mp4Source.src = "video/modOrazi-mobile-9x16-20s.mp4";
 				webmSource.src = "video/modOrazi-mobile-9x16-20s.webm";
 				mp4Source.src = "video/modOrazi-mobile-9x16-20s.mp4";
 			} else {
