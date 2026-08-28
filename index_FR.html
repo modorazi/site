@@ -46,6 +46,31 @@
 		</div>
 	</section>
 	
+	<style>
+		<!-- Ensure parent section centers the video -->
+		section {
+			display: flex;
+		justify-content: center;
+		width: 100%;
+		}
+
+		<!-- Desktop Default (16:9) -->
+		#hero-wrap {
+			width: 100%;
+			max-width: 100%;
+			aspect-ratio: 16 / 9;
+		}
+
+		<!-- Mobile Screens (9:16) -->
+		@media (max-width: 768px) {
+			#hero-wrap {
+				width: 280px;         
+				max-width: 80vw;      
+				aspect-ratio: 9 / 16; 
+			}
+		}
+	</style>
+	
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
 			const video = document.getElementById("hero");
