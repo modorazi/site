@@ -28,7 +28,8 @@
 	
 	<section class="centrato">
         <!-- modOrazi 16:9 Hero Video Embed. All rights reserved. Hero Video inline CSS applied beyond header.-->
-		<div id="hero-wrap" class="relative w-full aspect-video max-md:aspect-[9/16] overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
+		<!-- <div id="hero-wrap" class="relative w-full aspect-video max-md:aspect-[9/16] overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;"> -->
+		<div id="hero-wrap" class="relative w-full max-md:max-w-xs mx-auto aspect-video max-md:aspect-[9/16] overflow-hidden rounded-2xl bg-[#033318]">
 			<video id="hero"
 				autoplay
 				loop
@@ -55,8 +56,7 @@
 			const isPortrait = window.matchMedia("(orientation: portrait)").matches;
 
 			if (isPortrait) {
-				// Set mobile files, mp4 first for mobile
-				mp4Source.src = "video/modOrazi-mobile-9x16-20s.mp4";
+				// Set mobile files, mp4 first for mobile does not help
 				webmSource.src = "video/modOrazi-mobile-9x16-20s.webm";
 				mp4Source.src = "video/modOrazi-mobile-9x16-20s.mp4";
 			} else {
