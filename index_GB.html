@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Release3 v3 --> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -24,32 +25,85 @@
             <h2>Indeed, without DATA, there is no AI.</h2>
         </div>
 	</header>
+	
 	<section class="centrato">
         <!-- modOrazi 16:9 Hero Video Embed. All rights reserved. Hero Video inline CSS applied beyond header.-->
-		<div class="relative w-full aspect-video overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
-		<video
+		<div id="hero-wrap" class="relative w-full max-md:max-w-[280px] mx-auto aspect-video max-md:aspect-[9/16] overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
+			<video id="hero"
 				autoplay
 				loop
 				muted
 				playsinline
 				class="w-full h-full object-cover"
-				poster="images\modorazi-logo-251col-web.png"
-				width=1200
-				height=auto
+				poster="images/modorazi-logo-251col-web.png"
 				style="background-position: center;"
-			  >
-					<source src="video/modOrazi-hero-16x9-20s.webm" type="video/webm" />
-					<source src="video/modOrazi-hero-16x9-20s.mp4" type="video/mp4" /> 
-			  </video>			  
-        </div>
+			>
+				<!-- IDs added to sources for JS control -->
+				<source id="video-webm" type="video/webm" />
+				<source id="video-mp4" type="video/mp4" />					
+			</video>
+		</div>
 	</section>
 	
-    <section class="services">
-        <h2>Our Core Expertise</h2>
-        <div class="grid">
+	<style>		
+		section {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+
+		
+		#hero-wrap {
+			width: 80%;
+			max-width: 100%;
+			aspect-ratio: 16 / 9;
+		}
+
+		
+		@media (max-width: 768px) {
+			#hero-wrap {
+				width: 360px;         
+				max-width: 100%;      
+				aspect-ratio: 9 / 16; 
+			}
+		}
+	</style>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const video = document.getElementById("hero");
+			const webmSource = document.getElementById("video-webm");
+			const mp4Source = document.getElementById("video-mp4");
+
+			// Check if the screen is portrait (mobile)
+			const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+			if (isPortrait) {
+				// Set mobile files, mp4 first for mobile does not help
+				webmSource.src = "video/modOrazi-mobile-9x16-20s-v2.webm";
+				mp4Source.src = "video/modOrazi-mobile-9x16-20s-v2.mp4";
+			} else {
+				// Set desktop/wide files
+				webmSource.src = "video/modOrazi-wide-16x9-20s.webm";
+				mp4Source.src = "video/modOrazi-wide-16x9-20s.mp4";
+			}
+
+			// Force the video element to scan the newly injected sources
+			video.load();
+		});
+	</script>
+
+	
+    <section class="services" style="clear: both; display: block; width: 100%;">
+		<!-- Centered section heading -->
+		<h2 style="display: block; width: 100%; text-align: center; clear: both; grid-column: 1 / -1; flex: 0 0 100%; margin: 2rem 0 1.5rem 0;">
+			Our Core Expertise
+		</h2>
+		
+		<div class="grid">
             <div class="card">
                 <h3>Enterprise Architecture</h3>
-                <p><font size="4"> Robust, scalable, and secure infrastructures designed to integrate seamlessly with your legacy systems and hybrid cloud environments.</font></p>
+                <p><font size="4">Robust, scalable, and secure infrastructures designed to integrate seamlessly with your legacy systems and hybrid cloud environments.</font></p>
             </div>
             <div class="card">
                 <h3>Data Engineering</h3>
@@ -57,14 +111,16 @@
             </div>
             <div class="card">
                 <h3>Applied AI</h3>
-                <p><font size="4">Deploying predictive modeling, LLMs, and intelligent automation safely within highly regulated environments. <br>We make actual agents work.</font></br></p>
+                <p><font size="4">Deploying predictive modeling, LLMs, and intelligent automation safely within highly regulated environments. <br>We make actual AI agents work.</font></p>
             </div>
         </div>
     </section>
 
     <footer>
-        <h2>Ready to transform your IA & data strategy at the RIGHT cost?</h2>
-        <p><font size="4">Contact our architecture team right away to discuss your enterprise needs.<font></p>
+		<h2>ARCHITECTURE&nbsp&nbsp -&nbsp&nbsp&nbsp  DATA&nbsp&nbsp&nbsp  -&nbsp&nbsp ARTIFICIAL INTELLIGENCE</h2>
+        <h2>Looking for an IA &amp; DATA strategy at the right cost ?</h2>
+        <p><font size="4">Contact our architecture team right away to discuss your needs.<font></p>
+
         <a href="mailto:modorazi@outlook.com" class="email-link">modorazi@outlook.com</a>
         <p class="copyright">&copy; 2026 Modorazi. All rights reserved.</p>
     </footer>

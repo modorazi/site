@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Release3 v3 --> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,54 +20,107 @@
 
     <header class="hero">
         <div class="hero-content">
-            <h1>Progettare il futuro dell'IA e dei dati</h1>
-            <p>Costruiamo pipeline di dati critiche e soluzioni di intelligenza artificiale pensate per soddisfare le esigenze rigorose del settore bancario, della pubblica amministrazione e delle grandi imprese.</p>
-            <h2>Infatti, senza DATI, non ci può essere della vera IA.</h2>
+            <h1>Noi creiamo l'archittettura dell'IA e dei suoi dati</h1>
+            <p>Costruiamo pipeline di dati critiche e soluzioni di intelligenza artificiale pensate per soddisfare le esigenze rigorose del settore bancario, della pubblica amministrazione e delle imprese.</p>
+            <h2>Infatti, senza i DATI, non ci può essere della vera IA.</h2>
         </div>
 	</header>
-
+	
 	<section class="centrato">
         <!-- modOrazi 16:9 Hero Video Embed. All rights reserved. Hero Video inline CSS applied beyond header.-->
-		<div class="relative w-full aspect-video overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
-		<video
+		<div id="hero-wrap" class="relative w-full max-md:max-w-[280px] mx-auto aspect-video max-md:aspect-[9/16] overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
+			<video id="hero"
 				autoplay
 				loop
 				muted
 				playsinline
 				class="w-full h-full object-cover"
-				poster="images\modorazi-logo-251col-web.png"
-				width=1200
-				height=auto
+				poster="images/modorazi-logo-251col-web.png"
 				style="background-position: center;"
-			  >
-					<source src="video/modOrazi-hero-16x9-20s.webm" type="video/webm" />
-					<source src="video/modOrazi-hero-16x9-20s.mp4" type="video/mp4" /> 
-			  </video>			  
-        </div>
+			>
+				<!-- IDs added to sources for JS control -->
+				<source id="video-webm" type="video/webm" />
+				<source id="video-mp4" type="video/mp4" />					
+			</video>
+		</div>
 	</section>
 	
-    <section class="services">
-        <h2>Le nostre competenze chiave</h2>
-        <div class="grid">
+	<style>		
+		section {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+
+		
+		#hero-wrap {
+			width: 80%;
+			max-width: 100%;
+			aspect-ratio: 16 / 9;
+		}
+
+		
+		@media (max-width: 768px) {
+			#hero-wrap {
+				width: 360px;         
+				max-width: 100%;      
+				aspect-ratio: 9 / 16; 
+			}
+		}
+	</style>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const video = document.getElementById("hero");
+			const webmSource = document.getElementById("video-webm");
+			const mp4Source = document.getElementById("video-mp4");
+
+			// Check if the screen is portrait (mobile)
+			const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+			if (isPortrait) {
+				// Set mobile files, mp4 first for mobile does not help
+				webmSource.src = "video/modOrazi-mobile-9x16-20s-v2.webm";
+				mp4Source.src = "video/modOrazi-mobile-9x16-20s-v2.mp4";
+			} else {
+				// Set desktop/wide files
+				webmSource.src = "video/modOrazi-wide-16x9-20s.webm";
+				mp4Source.src = "video/modOrazi-wide-16x9-20s.mp4";
+			}
+
+			// Force the video element to scan the newly injected sources
+			video.load();
+		});
+	</script>
+
+	
+    <section class="services" style="clear: both; display: block; width: 100%;">
+		<!-- Centered section heading -->
+		<h2 style="display: block; width: 100%; text-align: center; clear: both; grid-column: 1 / -1; flex: 0 0 100%; margin: 2rem 0 1.5rem 0;">
+			Le nostre competenze chiave
+		</h2>
+		
+		<div class="grid">
             <div class="card">
-                <h3>Architettura aziendale</h3>
-                <p><font size="4"> Infrastrutture solide, scalabili e sicure, progettate per integrarsi perfettamente con i vostri sistemi legacy e con ambienti cloud hybrid.</font></p>
+                <h3>Architettura applicativa</h3>
+                <p><font size="4"> Infrastrutture applicative solide, scalabili e sicure, progettate per integrarsi perfettamente con i vostri sistemi legacy e con ambienti cloud hybrid</font></p>
             </div>
             <div class="card">
-                <h3>Ingegneria dei dati</h3>
+                <h3>Data Engineering</h3>
                 <p><font size="4">Pipeline di dati end-to-end che garantiscono un'elevata disponibilità, una conformità rigorosa e una governance assoluta dei dati sensibili, anche se riservati o finanziari.</font></p>
             </div>
             <div class="card">
                 <h3>IA applicata</h3>
-                <p><font size="4">Implementazione di modelling predittivo, LLM e automazione intelligente in totale sicurezza all'interno di ambienti fortemente regolamentati. <br>Facciamo girare dei veri agenti IA.</br></font></p>
+                <p><font size="4">Implementazione di modelling predittivo, LLM ed automazione intelligente in totale sicurezza all'interno di ambienti fortemente regolamentati. <br>Facciamo girare dei veri agenti IA.</font></p>
             </div>
         </div>
     </section>
 
-
     <footer>
-        <h2>Pronti a trasformare la vostra strategia IA e dati al GIUSTO costo?</h2>
-        <p><font size="4">Contattate subito il nostro team di architettura per discutere delle vostre esigenze aziendali.<font></p>
+		<h2>ARCHITECTURE&nbsp&nbsp -&nbsp&nbsp&nbsp  DATA&nbsp&nbsp&nbsp  -&nbsp&nbsp INTELLIGENZA ARTIFICIALE</h2>
+        <h2>Volete una strategia DATI &amp; IA al buon costo ?</h2>
+        <p><font size="4">Contattate senza attendere il nostro team di architettura per discutere delle vostre esigenze.<font></p>
+
         <a href="mailto:modorazi@outlook.com" class="email-link">modorazi@outlook.com</a>
         <p class="copyright">&copy; 2026 Modorazi. All rights reserved.</p>
     </footer>

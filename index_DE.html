@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Release3 v3 --> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,44 +18,96 @@
         <a href="mailto:modorazi@outlook.com" class="cta-button">Get in Touch</a>
     </nav>
 
-	<header class="hero">
+    <header class="hero">
         <div class="hero-content">
             <h1>Die Zukunft von Enterprise-KI und Daten gestalten</h1>
-            <p>Wir entwickeln geschäftskritische Datenpipelines und Lösungen für künstliche Intelligenz, die den strengen Anforderungen von Banken, öffentlicher Verwaltung und Großunternehmen entsprechen.</p>
+            <p>Wir entwickeln geschäftskritische Datenpipelines und Lösungen für künstliche Intelligenz, die den strengen Anforderungen von Banken, öffentlicher Verwaltung und Unternehmen entsprechen.</p>
             <h2>Denn ohne DATEN gibt es keine KI.</h2>
         </div>
 	</header>
-
+	
 	<section class="centrato">
         <!-- modOrazi 16:9 Hero Video Embed. All rights reserved. Hero Video inline CSS applied beyond header.-->
-		<div class="relative w-full aspect-video overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
-		<video
+		<div id="hero-wrap" class="relative w-full max-md:max-w-[280px] mx-auto aspect-video max-md:aspect-[9/16] overflow-hidden rounded-2xl bg-[#033318]" style="display: flex; justify-content: center;">
+			<video id="hero"
 				autoplay
 				loop
 				muted
 				playsinline
 				class="w-full h-full object-cover"
-				poster="images\modorazi-logo-251col-web.png"
-				width=1200
-				height=auto
+				poster="images/modorazi-logo-251col-web.png"
 				style="background-position: center;"
-			  >
-					<source src="video/modOrazi-hero-16x9-20s.webm" type="video/webm" />
-					<source src="video/modOrazi-hero-16x9-20s.mp4" type="video/mp4" /> 
-			  </video>			  
-        </div>
+			>
+				<!-- IDs added to sources for JS control -->
+				<source id="video-webm" type="video/webm" />
+				<source id="video-mp4" type="video/mp4" />					
+			</video>
+		</div>
 	</section>
 	
- <section class="services">
-        <h2>Unsere Kernkompetenzen</h2>
-        <div class="grid">
+	<style>		
+		section {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+		}
+
+		
+		#hero-wrap {
+			width: 80%;
+			max-width: 100%;
+			aspect-ratio: 16 / 9;
+		}
+
+		
+		@media (max-width: 768px) {
+			#hero-wrap {
+				width: 360px;         
+				max-width: 100%;      
+				aspect-ratio: 9 / 16; 
+			}
+		}
+	</style>
+	
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			const video = document.getElementById("hero");
+			const webmSource = document.getElementById("video-webm");
+			const mp4Source = document.getElementById("video-mp4");
+
+			// Check if the screen is portrait (mobile)
+			const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+			if (isPortrait) {
+				// Set mobile files, mp4 first for mobile does not help
+				webmSource.src = "video/modOrazi-mobile-9x16-20s-v2.webm";
+				mp4Source.src = "video/modOrazi-mobile-9x16-20s-v2.mp4";
+			} else {
+				// Set desktop/wide files
+				webmSource.src = "video/modOrazi-wide-16x9-20s.webm";
+				mp4Source.src = "video/modOrazi-wide-16x9-20s.mp4";
+			}
+
+			// Force the video element to scan the newly injected sources
+			video.load();
+		});
+	</script>
+
+	
+    <section class="services" style="clear: both; display: block; width: 100%;">
+		<!-- Centered section heading -->
+		<h2 style="display: block; width: 100%; text-align: center; clear: both; grid-column: 1 / -1; flex: 0 0 100%; margin: 2rem 0 1.5rem 0;">
+			Unsere Kernkompetenzen
+		</h2>
+		
+		<div class="grid">
             <div class="card">
                 <h3>Enterprise-Architektur</h3>
-                <p><font size="4"> Robuste, skalierbare und sichere Infrastrukturen, die sich nahtlos in Ihre Legacy-Systeme und hybriden Cloud-Umgebungen integrieren lassen.</font></p>
+                <p><font size="4">Robuste, skalierbare und sichere Infrastrukturen fûr Anwendungen, die sich nahtlos in Ihre Legacy-Systeme und hybriden Cloud-Umgebungen integrieren lassen.</font></p>
             </div>
             <div class="card">
                 <h3>Data Engineering</h3>
-                <p><font size="4">End-to-End-Datenpipelines, die eine hohe Verfügbarkeit, strikte Compliance und absolute Governance für sensible vertrauliche oder finanzielle Daten gewährleisten.</font></p>
+                <p><font size="4">End-to-End-Datenpipelines, die eine hohe Verfügbarkeit, strikte Compliance und absolute Governance für sensible, vertrauliche Daten gewährleisten.</font></p>
             </div>
             <div class="card">
                 <h3>Angewandte KI</h3>
@@ -64,8 +117,10 @@
     </section>
 
     <footer>
-        <h2>Bereit, Ihre KI- und Datenstrategie zu den RICHTIGEN Kosten zu transformieren?</h2>
-        <p><font size="4">Kontaktieren Sie noch heute unser Architektur-Team, um Ihre Unternehmensanforderungen zu besprechen.<font></p>
+		<h2>ARCHITEKTUR&nbsp&nbsp -&nbsp&nbsp&nbsp  DATEN&nbsp&nbsp&nbsp  -&nbsp&nbsp KÜNSTLICHE INTELLIGENZ</h2>
+        <h2>Möchten Sie une KI- und Datenstrategie zu den richten Kosten ?</h2>
+        <p><font size="4">Kontaktieren Sie noch heute unser Architektur-Team, um Ihre Anforderungen zu besprechen.<font></p>
+
         <a href="mailto:modorazi@outlook.com" class="email-link">modorazi@outlook.com</a>
         <p class="copyright">&copy; 2026 Modorazi. All rights reserved.</p>
     </footer>
