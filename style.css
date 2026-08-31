@@ -23,7 +23,7 @@ body {
 
 /* Navigation */
 .navbar {
-    display: flex;
+    display: flex;   /* Stacks the logo level and the flag level vertically */
     justify-content: space-between;
     align-items: center;
     padding: 1.5rem 5%;
@@ -34,8 +34,39 @@ body {
 }
 
 .logo {
+    display: left;
     font-size: 1.5rem;
     font-weight: 700;
+}
+
+/* Stacks logo on top and centered flags below */
+.logo-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem; /* Space between logo and flags */
+}
+
+/* Specific class for the navbar logo image to avoid collision with .logo */
+.navbar-logo-img {
+    width: 180px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+/* Displays flags horizontally and centered */
+.flags {
+    display: flex;
+    flex-direction: row; /* Centers the row of flags horizontally */
+    justify-content: center;
+    align-items: center;
+    gap: 15rem; /* Space between flags */
+}
+
+.flags img {
+    width: 40px;
+    height: 20px;
+    display: block;
 }
 
 .cta-button {
