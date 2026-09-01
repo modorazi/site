@@ -72,10 +72,13 @@ body {
 .cta-button {
     background-color: #033318; 
     color: white;
-    padding: 1.0rem 0.8rem;    /* text left and text right */
+    padding-top: 0.8rem; 
+    padding-bottom: 0.9rem;
+    padding-right: 0.8rem; 
+    padding-left: 0.8rem; 
     text-decoration: none;
     border-radius: 6px;
-    height: 3.6rem;
+    height: 3.7rem;
     font-weight: 400;
     transition: background-color 0.2s;
 }
